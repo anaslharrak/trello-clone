@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ColumnsContainer } from './styles';
+import { ColumnsContainer, AddButton, BodyContainer } from './styles';
 import { Column } from './types';
 import { Card } from '../exports';
 
@@ -37,16 +37,20 @@ const Columns = () => {
     }
 
     return (
-        <ColumnsContainer $numberOfColumns={columns.length}>            
-            {
-                columns.map((column) => {
-                    return (
-                        <Card key={column.id} column={column} />
-                    )
-                })
-            }
-            <button onClick={addColumn}>Add</button>
-        </ColumnsContainer>
+        <BodyContainer>
+            <ColumnsContainer $numberOfColumns={columns.length}>        
+                {
+                    columns.map((column) => {
+                        return (
+                            <Card key={column.id} column={column} />
+                        )
+                    })
+                }
+            </ColumnsContainer>
+            <AddButton onClick={addColumn}>Add new column</AddButton>
+            
+        </BodyContainer>
+
     )
 };
 
