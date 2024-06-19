@@ -1,5 +1,5 @@
 import type { Column } from "../Columns/types";
-import { StyledCard } from "./styles";
+import { StyledCard, CardTask, TaskContainer, AddTaskButton } from "./styles";
 
 
 const Card = ({column}: {column: Column}) => {
@@ -8,18 +8,21 @@ const Card = ({column}: {column: Column}) => {
         <StyledCard>
             <h1>{column.title}</h1>
 
-            <div>
+            <TaskContainer>
                 {
                     column.tasks.map((task) => {
                         return (
-                            <div key={task.id}>
+                            <CardTask key={task.id}>
                                 <h3>{task.title}</h3>
                                 <p>{task.description}</p>
-                            </div>
+                            </CardTask>
                         )
                     })
                 }
-            </div>
+                <AddTaskButton>Add task</AddTaskButton>
+                
+            </TaskContainer>
+
         </StyledCard>
     )
 }
