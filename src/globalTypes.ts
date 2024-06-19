@@ -4,9 +4,9 @@ export type Column = {
     tasks: Task[];
 }
 
-type Task = {
+export type Task = {
     id: number;
     title: string;
-    description?: string;
+    description: string;
     completed: boolean;
 }
